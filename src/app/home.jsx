@@ -12,7 +12,7 @@ export default function Front (){
     alt="Andrews profile pic"
    width={400}
    height={400}
-    className=" h-full object-fill border-2  shadow-2xl rounded-4xl flex-shrink-0"
+    className=" h-full object-fill border-2 border-blue-900 shadow-2xl rounded-4xl flex-shrink-0"
   />
   <dl className=" absolute -bottom-15  text-center pt-5 z-10">
   <dt className="font-light md:text-lg text-left ">i'm Andrews</dt>
@@ -24,7 +24,7 @@ export default function Front (){
              <div className="relative flex flex-col items-center justify-center
            w-1/3 h-full ">
             <h1 className=" text-2xl md:text-4xl xl:text-6xl font-bold animate-typeWriter ">WELCOME!!</h1>
-               <button className=" absolute mt-80 ml-10 p-1 text-sm md:text-base font-medium block 
+               <button className=" absolute mt-80  p-1 text-sm md:text-base font-medium block 
         font-semibold overflow-hidden border-2 border-blue-900 before:absolute before:left-0
          before:top-0 before:h-full before:w-0 before:bg-blue-900 before:z-[-1] before:transition-all
           before:duration-500 hover:before:w-full text-blue-900 hover:text-white rounded-md cursor-pointer  
