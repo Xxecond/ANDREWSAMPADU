@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import AA from "../assets/initials.png";
  import Navbar from "../components/navbar";
 
 export default function Header() {
@@ -37,30 +36,31 @@ export default function Header() {
   }, [scrolled]);
 
   return (
-    <header
-      className={`sticky flex justify-between top-0 z-50 transition-all duration-1000 ${
+    <header className={`sticky flex justify-between top-0 z-50 transition-all duration-1000 ${
         scrolled ? "py-2 shadow-lg bg-gray-100" : "py-4 bg-white"
       }`}
     >
-<Image src={AA} alt="initials" 
+<Image src="/assets/initials.png" alt="initials"
+width={92}
+height={92} 
 className={ `ml-3 h-8 w-8 ${
 
 textVisible?
 "":"opacity-0 "}`} />      
       <h1
-  className={`hidden md:block font-bold text-black transition-all  duration-1000 transform
+  className={`md:text-lg lg:text-2xl hidden md:block font-bold text-black transition-all  duration-1000 transform
     ${textVisible
       ? scrolled
-        ? "text-lg opacity-100 scale-100 translate-x-0"   // small, left
-        : "text-xl opacity-100 scale-100 translate-x-1/2" // big, center
+        ? " opacity-100 scale-100 translate-x-0"   // small, left
+        : " opacity-100 scale-100 translate-x-1/2" // big, center
       : "opacity-0 "
     }`}
 >
   PORTFOLIO
 </h1>
       <nav>
-        <ul className={`flex space-x-4 justify-end px-5  ${textVisible? scrolled?
-        "text-base":"text-lg":"opacity-0"
+        <ul className={`flex space-x-4 justify-end lg:text-xl px-5  ${textVisible?
+        "":"opacity-0"
 
         }`}>
             {headNav.map((item) =>
@@ -71,8 +71,11 @@ textVisible?
              </li>)}
         </ul>
       </nav>
-      <div className="md:hidden">
-      <Navbar textVisible ={textVisible} />
+      <div className={`md:hidden mr-3 h-8 w-8 ${
+
+textVisible?
+"":"opacity-0 "}`}>
+      <Navbar  />
     </div>
     </header>
   );

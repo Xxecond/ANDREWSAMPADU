@@ -1,6 +1,6 @@
 import Front from "./home";
 import Header from "./components/header";
-
+import Projects from "./projects";
 export default function Home() {
 
   return (
@@ -8,6 +8,7 @@ export default function Home() {
       <main className="h-[280vh]" >
         <Header />
         <Front />
+        <Projects />
       </main>
     </div>
   );

@@ -29,7 +29,7 @@ function Spin({ open, setOpen, className }) {
   );
 }
 
-export default function Navbar(textVisible) {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const navBar = [
@@ -43,9 +43,7 @@ export default function Navbar(textVisible) {
     <nav>
       {/* Make sure hamburger stays above menu */}
       <Spin open={open} setOpen={setOpen} 
-       className={`z-50 relative transition-all duration-1000 ${
-textVisible?
-"":"opacity-0 "} `} />
+       className={`z-50 relative transition-all duration-1000`} />
       <div
         className={`fixed inset-0 bg-gradient-to-b from-black/70 to-black/70 
           z-40 transition-opacity duration-300 md:hidden ${
