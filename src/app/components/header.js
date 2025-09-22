@@ -1,5 +1,5 @@
 "use client";
-
+import { Link } from "react-scroll";
 import { useState, useEffect } from "react";
 import Image from "next/image";
  import Navbar from "../components/navbar";
@@ -9,10 +9,10 @@ export default function Header() {
   const [textVisible, setTextVisible] = useState(true);
 
   const headNav = [
-    {id:1, link:"#home", text:"Home"},
-    {id:2, link:"#projects", text:"Projects"},
-    {id:3, link:"#About", text:"About"},
-    {id:4, link:"#Contact", text:"Contact"},
+    {id:1, link:"home", text:"Home"},
+    {id:2, link:"projects", text:"Projects"},
+    {id:3, link:"about", text:"About"},
+    {id:4, link:"contact", text:"Contact"},
   ]
   useEffect(() => {
     const handleScroll = () => {
@@ -66,8 +66,8 @@ textVisible?
             {headNav.map((item) =>
             <li key={item.id} className="relative hidden md:block after:block after:h-1 after:bg-black 
             after:w-0 hover:after:w-full after:transition-all leading-tight tracking-tight
-             after:duration-300 hover:font-bold"><a href={item.link}>
-                {item.text}</a>
+             after:duration-300 hover:font-bold"><Link to={item.link} smooth={true} duration={600}>
+                {item.text}</Link>
              </li>)}
         </ul>
       </nav>

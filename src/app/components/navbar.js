@@ -1,5 +1,6 @@
 "use client";
 import {HomeIcon, FolderIcon, InformationCircleIcon, PhoneIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-scroll";
 import { useState } from "react";
 
 function Spin({ open, setOpen, className }) {
@@ -33,10 +34,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const navBar = [
-    { id: 1, link: "#home", icon:HomeIcon, text: "Home" },
-    { id: 2, link: "#projects", icon:FolderIcon, text: "Projects" },
-    { id: 3, link: "#about", icon:InformationCircleIcon, text: "About" },
-    { id: 4, link: "#contact", icon:PhoneIcon, text: "Contact" },
+    { id: 1, link: "home", icon:HomeIcon, text: "Home" },
+    { id: 2, link: "projects", icon:FolderIcon, text: "Projects" },
+    { id: 3, link: "about", icon:InformationCircleIcon, text: "About" },
+    { id: 4, link: "contact", icon:PhoneIcon, text: "Contact" },
   ];
 
   return (
@@ -63,9 +64,11 @@ export default function Navbar() {
               {navBar.map((item) => {
                 const Icon = item.icon;
                 return(
-                <a
+                <Link
                   key={item.id}
-                  href={item.link}
+                  to={item.link}
+                  smooth={true}
+                  duration={600} 
                   onClick={()=> setOpen((false))}
                  className="relative block text-lg font-semibold p-2 rounded-lg overflow-hidden
              border border-blue-900 text-black
@@ -75,7 +78,7 @@ export default function Navbar() {
                 ><Icon className="h-5 w-5 inline-block text-blue-900" /><span className="ml-5">
                   {item.text}
                   </span>
-                </a>
+                </Link>
               );})}
             </nav>
           </div>
