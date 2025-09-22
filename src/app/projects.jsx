@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const projects = [
@@ -20,7 +20,7 @@ const projects = [
     liveLink: "https://restaurant-zeta-khaki.vercel.app/",
   },
   {
-    id: 4,
+    id: 3,
     name: "PORTFOLIO WEBSITE",
     image1: "/assets/port.jpg",
     image2: "/assets/port2.jpg",
@@ -28,7 +28,7 @@ const projects = [
     liveLink: "https://portfolioo-wx2k.vercel.app/",
   },
   {
-    id: 3,
+    id: 4,
     name: "E-COMMERCE STORE",
     image1: "/assets/comin.jpg",
     image2: "/assets/comin2.jpg",
@@ -38,96 +38,86 @@ const projects = [
 ];
 
 export default function Projects() {
-  const cardRefs = useRef([]);
+  return (
+    <section id="projects" className="py-16 bg-blue-100 text-black text-center">
+      <h1 className="text-xl md:text-2xl font-bold mb-12 tracking-wide">
+        My Projects
+      </h1>
+      <div className="px-10 gap-10 grid px-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProjectCard({ project }) {
+  const [current, setCurrent] = useState(0);
+  const cardRef = useRef(null);
 
   useEffect(() => {
-    const observers = [];
+    const card = cardRef.current;
+    if (!card) return;
 
-    cardRefs.current.forEach((card, index) => {
-      if (!card) return;
-      const images = card.querySelectorAll(".project-image");
-      let current = 0;
-      let timer = null;
-
-      const showImage = (i) => {
-        images.forEach((img, idx) => {
-          img.classList.remove("active", "prev");
-          if (idx === i) img.classList.add("active");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            // when half visible → show second image
+            setCurrent(1);
+          } else {
+            // less than half visible → reset to first image
+            setCurrent(0);
+          }
         });
-      };
+      },
+      { threshold: [0, 0.5, 1] }
+    );
 
-      // Click toggle
-      card.addEventListener("click", () => {
-        current = (current + 1) % images.length;
-        showImage(current);
-      });
-
-      // IntersectionObserver for auto-swipe
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-              timer = setTimeout(() => {
-                current = (current + 1) % images.length;
-                showImage(current);
-              }, 3000);
-            } else {
-              clearTimeout(timer);
-              current = 0;
-              showImage(0);
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      observer.observe(card);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((obs) => obs.disconnect());
+    observer.observe(card);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="projects" className="py-16 bg-blue-100 text-black text-center">
-      <h1 className="text-lg md:text-xl font-bold mb-12 tracking-wide">My Projects</h1>
-      <div className=" px-10 gap-10 grid px-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {projects.map((project, i) => (
-          <section
-            key={project.id}
-            ref={(el) => (cardRefs.current[i] = el)}
-            className="flex flex-col items-center justify-center relative h-screen"
-          >
-            <div className="relative w-full h-[70%] rounded-2xl overflow-hidden shadow-lg cursor-pointer project-card">
-              <Image
-                src={project.image1}
-                alt={`${project.name} preview 1`}
-                fill
-                className="absolute top-0 left-0 w-full h-full object-fill project-image active transition-transform duration-500 translate-x-0"
-              />
-              <Image
-                src={project.image2}
-                alt={`${project.name} preview 2`}
-                fill
-                className="absolute top-0 left-0 object-fill project-image transition-transform duration-500 translate-x-full"
-              />
-            </div>
+    <section
+      ref={cardRef}
+      className="flex flex-col items-center justify-center relative h-screen"
+    >
+      <div
+        onClick={() => setCurrent((prev) => (prev === 0 ? 1 : 0))}
+        className="relative w-full h-[70%] rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+      >
+        <Image
+          src={project.image1}
+          alt={`${project.name} preview 1`}
+          fill
+          className={`absolute top-0 left-0 w-full h-full object-fill transition-opacity duration-700 ${
+            current === 0 ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        <Image
+          src={project.image2}
+          alt={`${project.name} preview 2`}
+          fill
+          className={`absolute top-0 left-0 w-full h-full object-fill transition-opacity duration-700 ${
+            current === 1 ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      </div>
 
-            <div className="w-full border-0 border-bg-blue-500 shadow-2xl mt-4 p-4 rounded-lg text-left">
-              <h2 className="md:text-lg font-semibold mb-2 flex items-center">
-                {project.name}
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  className="ml-3 px-3 py-1 border hover:border-0 rounded-lg text-sm m:text-base text-blue-900 hover:bg-blue-900 hover:text-white "
-                >
-                  Live
-                </a>
-              </h2>
-              <p className="text-sm md:text-base leading-relaxed">{project.desc}</p>
-            </div>
-          </section>
-        ))}
+      <div className="w-full border-0 border-bg-blue-500 shadow-2xl mt-4 p-4 rounded-lg text-left">
+        <h2 className="md:text-lg font-semibold mb-2 flex items-center">
+          {project.name}
+          <a
+            href={project.liveLink}
+            target="_blank"
+            className="ml-3 px-3 py-1 border hover:border-0 rounded-lg text-sm md:text-base text-blue-900 hover:bg-blue-900 hover:text-white"
+          >
+            Live
+          </a>
+        </h2>
+        <p className="text-sm md:text-base leading-relaxed">{project.desc}</p>
       </div>
     </section>
   );

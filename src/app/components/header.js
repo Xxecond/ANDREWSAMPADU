@@ -40,7 +40,7 @@ export default function Header() {
         scrolled ? "py-2 shadow-lg bg-gray-100" : "py-4 bg-white"
       }`}
     >
-<Image src="/assets/initials.png" alt="initials"
+<Image src="/assets/initials.webp" alt="initials"
 width={92}
 height={92} 
 className={ `ml-3 h-8 w-8 ${

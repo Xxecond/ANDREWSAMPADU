@@ -3,16 +3,16 @@ import Image from "next/image";
 
 export default function Front (){
   return (
-    <section  className="text-center min-h-dvh bg-blue-100 flex flex-col ">
-        <div id="home" className="mt-30  flex h-60 md:h-80 xl:h-100 items-center w-full justify-around">
+    <section id="home" className="mt-0.5 text-center min-h-dvh bg-blue-100 flex flex-col ">
+        <div  className="mt-30  flex h-60 md:h-80 xl:h-100 items-center w-full justify-around">
           <div className="flex flex-col items-center justify-around
            w-1/2 h-full relative ">
   <Image 
-    src= "/assets/PIC.jpg" 
+    src= "/assets/PIC.webp" 
     alt="Andrews profile pic"
    width={400}
    height={400}
-    className=" h-full object-fill border-2 border-blue-900 shadow-2xl rounded-4xl flex-shrink-0"
+    className=" h-full object-fill border-2 border-blue-800 shadow-2xl rounded-4xl flex-shrink-0"
   />
   <dl className=" absolute -bottom-15  text-center pt-5 z-10">
   <dt className="font-light md:text-lg text-left ">i'm Andrews</dt>

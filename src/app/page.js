@@ -5,7 +5,7 @@ export default function Home() {
 
   return (
     <div>
-      <main className="h-[280vh]" >
+      <main >
         <Header />
         <Front />
         <Projects />

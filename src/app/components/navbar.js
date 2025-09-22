@@ -66,6 +66,7 @@ export default function Navbar() {
                 <a
                   key={item.id}
                   href={item.link}
+                  onClick={()=> setOpen((false))}
                  className="relative block text-lg font-semibold p-2 rounded-lg overflow-hidden
              border border-blue-900 text-black
              before:absolute before:left-0 before:top-0 before:h-full before:w-0
