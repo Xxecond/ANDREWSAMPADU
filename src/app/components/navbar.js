@@ -53,7 +53,7 @@ export default function Navbar() {
         onClick={() => setOpen(false)}
       >
         <div
-          className={`fixed right-0 top-0 h-full w-64 bg-white rounded-xl shadow-xl transform 
+          className={`fixed right-0 top-0 h-full w-64 bg-white shadow-xl transform 
             transition-transform duration-300 ${
               open ? "translate-x-0" : "translate-x-full"
             }`}
