@@ -66,7 +66,7 @@ textVisible?
             {headNav.map((item) =>
             <li key={item.id} className="relative hidden md:block after:block after:h-1 after:bg-black 
             after:w-0 hover:after:w-full after:transition-all leading-tight tracking-tight
-             after:duration-300 hover:font-bold"><Link to={item.link} smooth={true} duration={600}>
+             after:duration-300 hover:font-bold cursor-pointer"><Link to={item.link} smooth={true} duration={600}>
                 {item.text}</Link>
              </li>)}
         </ul>
