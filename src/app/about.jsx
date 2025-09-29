@@ -59,7 +59,7 @@ const observer = new IntersectionObserver((entries)=>{
     const el = entry.target.classList;
     if(entry.isIntersecting){
       el.add("translate-x-0", "opacity-50");
-      el.remove("-translate-x-64", "translate-x-64", "opacity-0");
+      el.remove("translate-x-64", "md:translate-x-64", "opacity-0");
 
     setTimeout(()=>{
       el.add("opacity-100");
@@ -70,8 +70,8 @@ const observer = new IntersectionObserver((entries)=>{
       el.add("-translate-x-64", "opacity-0");
       el.remove("translate-x-0", "opacity-50", "opacity-100");
     }else if(entry.target === rightBox.current){
-      el.add("translate-x-64", "opacity-0");
-      el.remove("translate-x-0", "opacity-50", "opacity-100");
+      el.add("md:translate-x-64", "opacity-0");
+      el.remove("md:translate-x-0", "opacity-50", "opacity-100");
     }
   }
 });
@@ -106,16 +106,16 @@ return (
  </div>
 <div ref={rightBox}
   className="pb-10 flex justify-center items-center relative h-150 md:h-120 md:w-1/2 bg-blue-100 rounded-xl
-   transition-transform transition-opacity md:translate-x-64 
+   transition-transform transition-opacity translate-x-64 
    opacity-0 duration-700"
 >
   <p className=" text-left px-5 py-3 md:text-xl lg:text-2xl 
-  leading-loose tracking-widest 
-  md:leading-tight md:tracking-tight
+  leading-tight tracking-tight
   lg:leading-relaxed lg:tracking-tight
    xl:leading-loose xl:tracking-wide" 
   > <Typewriter fullText={aboutText} /> </p>
-       <ul className="absolute bottom-0 justify-end  w-full h-10 flex space-x-5 mr-10 mb-3">
+       <ul className="absolute bottom-0 justify-end  w-full h-10 
+       flex space-x-5 mr-10 mb-0 lg:mb-3">
         {Stacks.map((item)=>{
           const Icon = item.icon;
           return(
