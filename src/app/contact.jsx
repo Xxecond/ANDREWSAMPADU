@@ -66,7 +66,7 @@ export default function ContactForm() {
             <p className="text-white -translate-y-20 mt-3"><CheckCircleIcon className="h-4 w-4 mr-3 inline-block" />Drop your message and i'll respond within 24 hours</p>
             <div className="flex bg-white/10 w-[70%] items-center p-4 rounded-lg justify-between relative">
                 <Image 
-                    src= "/assets/PIC.webp" 
+                    src= "/assets/PIC.jpg" 
     alt="Andrews profile pic"
    width={70}
    height={70}
@@ -75,7 +75,7 @@ export default function ContactForm() {
                 <p className="text-sm text-white font-semibold tracking-wider absolute left-25 top-1/2 -translate-y-1/2 ">
                 Andrews<span className="block font-thin tracking-tighter text-xs">Developer</span>
                 </p>
-                <button className="flex-shrink-0 bg-green-600 text-sm py-3 text-white rounded-2xl px-4">whatApp<ChatBubbleOvalLeftIcon className="h-5 w-5 inline-block" /></button>
+                <button className=" hidden lg:block flex-shrink-0 bg-green-600 text-sm py-3 text-white rounded-2xl px-4">whatApp<ChatBubbleOvalLeftIcon className="h-5 w-5 inline-block" /></button>
             </div>
             </article>
             <form
