@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useRef,useState } from "react";
 import Image from "next/image";
-//import {SiNextdot.js, SiReact, SiHtml5, SiJavascript} from react-icons/ai;
+import {SiNextdotjs, SiReact, SiHtml5, SiCss3, SiJavascript} from "react-icons/si";
+
 const aboutText = `Hi, i'm Andrews Ampadu, a level 300 I.T student
      at the University of Cape Coast focused on 
      full-stack web development. I have a solid knowledge of Next.js,
@@ -81,7 +82,14 @@ observer.observe(rightBox.current);
 return () =>observer.disconnect();
 }, []);
 
-const Stacks =["html", "css", "react", "javascript", "react", "next.js"];
+const Stacks = [
+  { id:1, icon: SiNextdotjs, color: "text-black" },
+  { id:2, icon: SiReact, color: "text-blue-500" },
+  { id:3, icon: SiHtml5, color: "text-orange-600" },
+  { id:4, icon: SiCss3, color: "text-blue-700" },
+  { id:5, icon: SiJavascript, color: "text-yellow-400" },
+];
+
 
 return (
     <section id="about" className="px-4 py-9 w-full bg-blue-100 justify-center">
@@ -98,7 +106,7 @@ return (
  </div>
 <div ref={rightBox}
   className="pb-10 flex justify-center items-center relative h-150 md:h-120 md:w-1/2 bg-blue-100 rounded-xl
-   transition-transform transition-opacity translate-x-64 
+   transition-transform transition-opacity md:translate-x-64 
    opacity-0 duration-700"
 >
   <p className=" text-left px-5 py-3 md:text-xl lg:text-2xl 
@@ -107,11 +115,14 @@ return (
   lg:leading-relaxed lg:tracking-tight
    xl:leading-loose xl:tracking-wide" 
   > <Typewriter fullText={aboutText} /> </p>
-       <ul className="absolute bottom-0  w-full bg-green-900 h-10 text-white flex space-x-3">
-        {Stacks.map((item, index)=>(
-          <li key={index} className="text-white font-bold">
-            {item}</li>
-        ))}
+       <ul className="absolute bottom-0 justify-end  w-full h-10 flex space-x-5 mr-10 mb-3">
+        {Stacks.map((item)=>{
+          const Icon = item.icon;
+          return(
+          <li key={item.id}>
+            <Icon className={`text-2xl md:text-xl lg:text-3xl 
+            ${item.color}`} /></li>
+)})}
        </ul>
   </div>
 </main>
