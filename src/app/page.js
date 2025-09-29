@@ -1,6 +1,6 @@
 import Front from "./home";
 import Header from "./components/header";
-import Footer from "./components/Footer"
+import Footer from "./components/footer";
 import Projects from "./projects";
 import About from "./about";
 import ContactForm from "./contact";
