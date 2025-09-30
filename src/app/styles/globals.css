@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body{
+  background-color: #DBEAFE;
+}
+
 @keyframes typeWriter {
   from {
         width: 0;

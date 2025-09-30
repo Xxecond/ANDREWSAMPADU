@@ -6,10 +6,10 @@ import Image from "next/image";
 
 export default function Footer(){
     const socialLinks =[
-        {id:1, icon:SiX, text:"X"},
-        {id:2, icon:SiWhatsapp, text:"WhatsApp"},
-            {id:3, icon:SiDiscord, text:"Discord"},
-        {id:4, icon:SiLinkedin, text:"Linkedin"},
+        {id:1, link:"https://x.com/maners_999shit", icon:SiX, text:"X"},
+        {id:2, link:"https://wa.me/233531467213", icon:SiWhatsapp, text:"WhatsApp"},
+            {id:3, link:"https://discord.com/users/1416174213659627640", icon:SiDiscord, text:"Discord"},
+        {id:4, link:"https://www.linkedin.com/in/andrews-ampadu-a2672b323", icon:SiLinkedin, text:"Linkedin"},
     ]
      
     const navLinks =[
@@ -49,9 +49,9 @@ Navigation</span>
 <nav className="flex-1 ">
    <div className="relative">
     <span className="absolute top-2 left-0 block h-3
-    w-3 rounded-full opacity-75 bg-green-900 animate-ping"></span>
+    w-3 rounded-full opacity-75 bg-white animate-ping"></span>
     <span className="absolute top-2 left-0 block h-3
-    w-3 rounded-full bg-green-900">
+    w-3 rounded-full bg-white">
    </span> 
     <h3 className="md:text-xl font-semibold ml-5">Find Me Online</h3>
    </div> 
@@ -61,7 +61,8 @@ Navigation</span>
         const Icon = item.icon;
         return(
              <li key={item.id} >
-                  <a href={item.link} 
+                  <a href={item.link} target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center space-x-3 md:text-xl
                    text-gray-300 font-ligh leading-relaxed hover:font-semibold 
                    cursor-pointer hover:font-semibold">

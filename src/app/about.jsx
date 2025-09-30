@@ -95,17 +95,19 @@ return (
     <section id="about" className="px-4 py-9 w-full bg-blue-100 justify-center">
       <main className=" overflow-x-hidden flex p-9 gap-7 items-center min-h-dvh bg-blue-900 
       rounded-xl relative">  
-      <h1  className="absolute top-12 left-1/2 -translate-x-1/2 text-white text-xl md:text-2xl font-black">About Me</h1>
+      <h1  className="absolute top-12 left-1/2 -translate-x-1/2 
+      text-white text-xl md:text-2xl font-black leading-loose">About Me</h1>
 <div ref={leftBox} className="hidden md:block w-1/2 h-120 bg-red-900 rounded-xl
  transition-transform transition-opacity -translate-x-64 opacity-0 duration-600" >
   <Image 
   src="/assets/Pic.jpg"
   alt="aboutMePic"
-  fill
+  fill className="rounded-xl"
   />
  </div>
 <div ref={rightBox}
-  className="mt-16 md:mt-0 pb-10 flex justify-center items-center relative h-150 md:h-120 md:w-1/2 bg-blue-100 rounded-xl
+  className="mt-16 md:mt-0 pb-10 flex justify-center items-center 
+  relative h-150 md:h-120 md:w-1/2 bg-blue-100 rounded-xl
    transition-transform transition-opacity translate-x-64 
    opacity-0 duration-700"
 >

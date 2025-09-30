@@ -39,15 +39,20 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-16 bg-blue-100 text-black text-center">
-      <h1 className="text-xl md:text-2xl font-bold mb-12 tracking-wide">
+    <section id="projects" className="py-9 px-4 bg-blue-100 text-white text-center">
+          <main className=" overflow-x-hidden flex p-9 gap-7 items-center  bg-blue-900 
+      rounded-xl relative">  
+  
+      <h1 className="absolute top-12 left-1/2 -translate-x-1/2 text-xl
+       md:text-2xl font-black leading-loose">
         Latest Projects
       </h1>
-      <div className="px-10 gap-10 grid px-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="pt-10 md:pt-25 px-10 gap-10 grid px-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
+      </main>
     </section>
   );
 }
@@ -106,7 +111,8 @@ function ProjectCard({ project }) {
         />
       </div>
 
-      <div className="w-full border-0 border-bg-blue-500 shadow-2xl mt-4 p-4 rounded-lg text-left">
+      <div className="w-full border-0 border bg-blue-100 shadow-2xl 
+      mt-4 p-4 rounded-lg text-left text-black">
         <h2 className="md:text-lg font-semibold mb-2 flex items-center">
           {project.name}
           <a
