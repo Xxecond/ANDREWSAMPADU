@@ -1,4 +1,3 @@
-
 "use client";
 {/*"use client";
 import { motion } from "framer-motion";
@@ -36,7 +35,7 @@ export default function Try() {
   );
  */}
 
-import { useEffect, useRef } from "react";
+{/*import { useEffect, useRef } from "react";
 
 export default function Try() {
   const rightRef = useRef(null);
@@ -93,4 +92,15 @@ export default function Try() {
       </main>
     </section>
   );
+}
+*/}
+
+export default function Try(){
+  return(
+    <div className="relative bg-blue-400 h-screen ">
+      <button className="absolute px-2 py-5 bg-black text-white rounded-xl
+      top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
+      transform transition duration-500 hover:scale-210 rotate-15 hover:rotate-0"> click me</button>
+    </div>
+  )
 }

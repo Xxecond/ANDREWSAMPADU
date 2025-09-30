@@ -8,7 +8,7 @@ import {
   PaperAirplaneIcon,
   CheckCircleIcon
 } from "@heroicons/react/24/solid";
-
+import { SiWhatsapp } from "react-icons/si";
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
@@ -57,7 +57,7 @@ export default function ContactForm() {
   return (
     <div id="contact" className="px-4 py-9 w-full bg-blue-100 justify-center">
       
-      <div className="flex items-center min-h-dvh bg-blue-900 rounded-xl relative">
+      <div className="flex items-center md:pl-10 min-h-dvh bg-blue-900 rounded-xl relative">
       <h1  className="absolute top-12 left-1/2 -translate-x-1/2 text-white text-xl md:text-2xl font-bold">Contact Me</h1>
       <article className="hidden md:block w-1/2">
             <h1 className="text-white leading-tight text-3xl font-semibold -translate-y-30">Questions? ideas? or just a hello?<br />  feel free to ask.</h1>
@@ -70,12 +70,12 @@ export default function ContactForm() {
     alt="Andrews profile pic"
    width={70}
    height={70}
-    className=" h-full object-fill border-2 shadow-2xl rounded-4xl"
+    className=" h-full object-fill border-2 shadow-2xl rounded-full"
  />
                 <p className="text-sm text-white font-semibold tracking-wider absolute left-25 top-1/2 -translate-y-1/2 ">
                 Andrews<span className="block font-thin tracking-tighter text-xs">Developer</span>
                 </p>
-                <button className=" hidden lg:block flex-shrink-0 bg-green-600 text-sm py-3 text-white rounded-2xl px-4">whatApp<ChatBubbleOvalLeftIcon className="h-5 w-5 inline-block" /></button>
+                <button className=" hidden lg:block flex-shrink-0 bg-green-600 text-sm py-3 text-white rounded-2xl px-4">whatApp<SiWhatsapp className="h-5 w-5 ml-5 inline-block" /></button>
             </div>
             </article>
             <form

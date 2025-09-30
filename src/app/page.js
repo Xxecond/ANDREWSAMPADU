@@ -4,7 +4,10 @@ import Footer from "./components/footer";
 import Projects from "./projects";
 import About from "./about";
 import ContactForm from "./contact";
-import Try from "./try";
+
+//import Try from "./try";
+
+
 export default function Home() {
 
   return (
@@ -16,8 +19,7 @@ export default function Home() {
         <About />
         <ContactForm />
         <Footer />
-    {/*<Try />*/}
-      </main>
-    </div>
-  );
+        </main>
+    </div>  
+);
 }

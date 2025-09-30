@@ -105,7 +105,7 @@ return (
   />
  </div>
 <div ref={rightBox}
-  className="mt-16 pb-10 flex justify-center items-center relative h-150 md:h-120 md:w-1/2 bg-blue-100 rounded-xl
+  className="mt-16 md:mt-0 pb-10 flex justify-center items-center relative h-150 md:h-120 md:w-1/2 bg-blue-100 rounded-xl
    transition-transform transition-opacity translate-x-64 
    opacity-0 duration-700"
 >

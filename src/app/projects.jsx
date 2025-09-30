@@ -41,7 +41,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-16 bg-blue-100 text-black text-center">
       <h1 className="text-xl md:text-2xl font-bold mb-12 tracking-wide">
-        My Projects
+        Latest Projects
       </h1>
       <div className="px-10 gap-10 grid px-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {projects.map((project) => (
