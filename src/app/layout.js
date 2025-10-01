@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="8dhQaWLvSrNA8d3hvZLdryEfs4q3EjiQeohrdVsHBYs" />
         <script src="https://www.googletagmanager.com/gtag/js?id=G-LFBY2BJJ4F"></script>
 <script id="ga-script" strategy="afterInteractive">
   {`window.dataLayer = window.dataLayer || [];
