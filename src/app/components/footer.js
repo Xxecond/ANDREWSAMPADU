@@ -26,7 +26,7 @@ export default function Footer(){
 <div className=" flex items-center space-x-3">
     <Image  src="/assets/initials.webp"
 alt="FooterFavicon" width={40} height={40}
-className="border-2 border-white"/>
+className="border-1 border-white"/>
 <span className="md:text-lg font-semibold inline-block tracking-tight ml-3">ANDREWS AMPADU</span>
 </div>
 <p className="pt-5 font-light leading-relaxed">Frontend developer specializing in UI/UX modern web technologies and building smooth digital experiences with clean code & creative flow.</p>
@@ -64,7 +64,7 @@ Navigation</span>
                   <a href={item.link} target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 md:text-xl
-                   text-gray-300 font-ligh leading-relaxed hover:font-semibold 
+                   text-gray-300 font-light leading-relaxed hover:font-semibold 
                    cursor-pointer hover:font-semibold">
                     <Icon />
                     <span className="">{item.text}</span></a>

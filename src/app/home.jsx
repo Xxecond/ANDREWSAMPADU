@@ -12,7 +12,7 @@ export default function Front (){
     alt="Andrews profile pic"
    width={400}
    height={400}
-    className=" h-full object-fill border-2 border-blue-800 shadow-2xl rounded-4xl flex-shrink-0"
+    className=" h-full object-fill border-2 border-black shadow-2xl rounded-4xl flex-shrink-0"
   />
   <dl className=" absolute -bottom-15  text-center pt-5 z-10">
   <dt className="font-light md:text-lg text-left ">i'm Andrews</dt>
