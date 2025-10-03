@@ -18,7 +18,7 @@ export default function Contact() {
     { id: 2, type: "email", icon: EnvelopeIcon, placeholder: "Email", name: "email" },
     { id: 3, type: "text", icon: ChatBubbleOvalLeftIcon, placeholder: "Message", name: "message" },
   ];
-
+  
   const dotItems =[
     {id:1, delay:"[animation-delay:0ms]"},
        {id:2, delay:"[animation-delay:300ms]"},
