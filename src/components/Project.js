@@ -47,7 +47,7 @@ export default function Projects() {
        md:text-2xl font-black leading-loose">
         Latest Projects
       </h1>
-      <div className="pt-10 md:pt-25 gap-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="py-10  md:py-25 gap-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
