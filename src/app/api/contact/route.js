@@ -4,16 +4,35 @@ export async function POST(request) {
   try {
     const { name, email, message } = await request.json();
 
+    // ✅ Basic required field check
+    if (!name || !email || !message) {
+      return new Response(
+        JSON.stringify({ success: false, message: "All fields are required." }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // ✅ Check for valid Gmail address format
+    const emailRegex = /^[^\s@]+@gmail\.com$/;
+    if (!emailRegex.test(email)) {
+      return new Response(
+        JSON.stringify({ success: false, message: "Invalid email address. Must be a valid Gmail account." }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // ✅ Nodemailer setup
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT,
-      secure: true,
+      secure: process.env.EMAIL_PORT === "465", // use TLS if port 465
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
     });
 
+    // ✅ Send the mail
     await transporter.sendMail({
       from: `"${name}" <${email}>`,
       to: process.env.EMAIL_TO,
@@ -24,13 +43,13 @@ export async function POST(request) {
 
     return new Response(
       JSON.stringify({ success: true, message: "Email sent!" }),
-      { status: 200 }
+      { status: 200, headers: { "Content-Type": "application/json" } }
     );
   } catch (err) {
-    console.error(err);
+    console.error("Email error:", err.message);
     return new Response(
       JSON.stringify({ success: false, message: "Error sending email." }),
-      { status: 500 }
+      { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
 }

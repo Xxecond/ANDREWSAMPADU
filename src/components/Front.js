@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Front (){
   return (
-    <section id="home" className=" text-center min-h-dvh bg-blue-100 flex flex-col ">
+    <section id="home" className=" text-center min-h-screen bg-blue-100 flex flex-col ">
         <div  className="mt-30  flex h-60 md:h-80 xl:h-100 items-center w-full justify-around">
           <div className="flex flex-col items-center justify-around
            w-1/2 h-full relative ">

@@ -57,7 +57,7 @@ export default function Contact() {
   return (
     <div id="contact" className="px-4 py-9 w-full bg-blue-100 justify-center">
       
-      <div className="flex items-center md:pl-10 min-h-dvh bg-blue-900 rounded-xl relative">
+      <div className="flex items-center md:pl-10 min-h-screen bg-blue-900 rounded-xl relative">
       <h1  className="absolute top-12 left-1/2 -translate-x-1/2 text-white text-xl 
       md:text-2xl font-bold leading-loose">Contact Me</h1>
       <article className="hidden md:block w-1/2">
