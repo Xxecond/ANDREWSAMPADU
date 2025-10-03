@@ -9,7 +9,7 @@ import {
   CheckCircleIcon
 } from "@heroicons/react/24/solid";
 import { SiWhatsapp } from "react-icons/si";
-export default function ContactForm() {
+export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
 

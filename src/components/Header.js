@@ -2,7 +2,7 @@
 import { Link } from "react-scroll";
 import { useState, useEffect } from "react";
 import Image from "next/image";
- import Navbar from "../components/navbar";
+ import Navbar from "./Navbar";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,7 +37,7 @@ export default function Header() {
 
   return (
     <header className={`sticky flex justify-between top-0 z-50 transition-all duration-1000 ${
-        scrolled ? "py-2 shadow-lg bg-gray-100" : "py-4 bg-white"
+        scrolled ? "py-3 shadow-lg bg-gray-100" : "py-4 bg-white"
       }`}
     >
 <Image src="/assets/initials.webp" alt="initials"
