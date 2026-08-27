@@ -1,0 +1,195 @@
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import {
+  EnvelopeIcon,
+  UserIcon,
+  ChatBubbleOvalLeftIcon,
+  PaperAirplaneIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/solid";
+import { SiWhatsapp } from "react-icons/si";
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const formItems = [
+    { id: 1, type: "text", icon: UserIcon, placeholder: "Name", name: "name" },
+    {
+      id: 2,
+      type: "email",
+      icon: EnvelopeIcon,
+      placeholder: "Email",
+      name: "email",
+    },
+    {
+      id: 3,
+      type: "text",
+      icon: ChatBubbleOvalLeftIcon,
+      placeholder: "Message",
+      name: "message",
+    },
+  ];
+
+  const dotItems = [
+    { id: 1, delay: "[animation-delay:0ms]" },
+    { id: 2, delay: "[animation-delay:300ms]" },
+    { id: 3, delay: "[animation-delay:600ms]" },
+  ];
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setStatus("sent");
+        setFormData({ name: "", email: "", message: "" }); // ✅ clear form after success
+      } else {
+        setStatus("error");
+      }
+
+      // Reset status back after 3s
+      setTimeout(() => setStatus(""), 3000);
+    } catch (err) {
+      setStatus("error");
+      setTimeout(() => setStatus(""), 3000);
+    }
+  };
+
+  return (
+    <div id="contact" className="px-4 py-9 w-full bg-blue-100 justify-center">
+      <div className="flex flex-col items-center pb-20 bg-blue-900 rounded-xl relative">
+        <header className="block mx-auto py-5  ">
+          <h1
+          className="text-white text-xl
+       md:text-2xl font-black leading-loose"
+        >
+          Contact Me
+        </h1>
+        </header>
+        <main className="flex w-full gap-4 px-4">
+        <article className="space-y-9 text-white flex flex-col hidden md:block w-1/2 ">
+        <h1 className=" leading-tight text-3xl font-semibold pb-3">
+            Questions? ideas? or just a hello?
+            <br /> feel free to ask.
+          </h1>
+          <div className="space-y-3">
+          <p>
+            <CheckCircleIcon className="h-4 w-4 mr-3 inline-block " />
+            Work with me directly - no bots, no middlemen
+          </p>
+          <p >
+            <CheckCircleIcon className="h-4 w-4 mr-3 inline-block " />
+            Deliver high-quality and fully satisfactory work
+          </p>
+          <p >
+            <CheckCircleIcon className="h-4 w-4 mr-3 inline-block" />
+            Drop your message and i'll respond within 24 hours
+          </p>
+          </div>
+          <div className="flex bg-white/10 w-[70%] items-center p-4 rounded-lg justify-between relative">
+            <Image
+              src="/assets/him-2.JPG"
+              alt="Andrews profile pic"
+              width={70}
+              height={70}
+              className=" h-full object-cover border-2 shadow-2xl rounded-full"
+            />
+            <p className="text-sm text-white font-semibold tracking-wider absolute left-25 top-1/2 -translate-y-1/2 ">
+              Andrews
+              <span className="block font-thin tracking-tighter text-xs">
+                Developer
+              </span>
+            </p>
+            <button className=" hidden lg:block flex-shrink-0 bg-green-600 text-sm py-3 text-white rounded-2xl px-4">
+              whatApp
+              <SiWhatsapp className="h-5 w-5 ml-5 inline-block" />
+            </button>
+          </div>
+        </article>
+        <form onSubmit={handleSubmit} className=" w-full md:w-1/2">
+          <section className="grid grid-cols-1 p-9 space-y-8 shadow-xl bg-white rounded-xl">
+            <h1 className="text-center  my-auto  h-20 text-xl md:text-2xl font-bold">
+              Get in touch!
+            </h1>
+
+            {formItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <div key={item.id} className="relative w-full">
+                  <Icon
+                    className={`absolute left-3 text-gray-600 h-5 w-5 
+                  ${item.id === 3 ? "top-4" : "top-1/2 -translate-y-1/2"}`}
+                  />
+                  {item.id === 3 ? (
+                    <textarea
+                      id={item.id}
+                      name={item.name}
+                      value={formData[item.name]}
+                      onChange={handleChange}
+                      placeholder={item.placeholder}
+                      className="pl-10 w-full ring-1 ring-gray-600 focus:ring-2 focus:outline-none p-3 rounded-xl h-32"
+                      required
+                    />
+                  ) : (
+                    <input
+                      id={item.id}
+                      name={item.name}
+                      value={formData[item.name]}
+                      onChange={handleChange}
+                      type={item.type}
+                      placeholder={item.placeholder}
+                      className="pl-10 p-3 w-full ring-1 ring-gray-600 focus:ring-2 focus:outline-none rounded-xl"
+                      required
+                    />
+                  )}
+                </div>
+              );
+            })}
+
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="bg-blue-900 text-white text-sm md:text-base rounded-xl p-2 group relative flex justify-center items-center h-12"
+            >
+              {status === "loading" ? (
+                <div className="flex gap-3">
+                  {dotItems.map((item) => (
+                    <span
+                      key={item.id}
+                      className={`w-2 h-2 bg-white rounded-full animate-pulseDot ${item.delay}`}
+                    ></span>
+                  ))}
+                </div>
+              ) : status === "sent" ? (
+                "✅ Sent!"
+              ) : status === "error" ? (
+                "❌ Failed"
+              ) : (
+                <>
+                  <PaperAirplaneIcon className="h-5 w-5 absolute -rotate-28 group-hover:rotate-0 transition-all duration-500 right-3" />
+                  Send Message
+                </>
+              )}
+            </button>
+          </section>
+        </form>
+      </main>
+      </div>
+    </div>
+  );
+}

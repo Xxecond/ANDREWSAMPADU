@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://andrewsampadu.vercel.app
+
+# Sitemaps
+Sitemap: https://andrewsampadu.vercel.app/sitemap.xml

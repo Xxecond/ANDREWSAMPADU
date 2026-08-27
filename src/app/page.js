@@ -1,19 +1,18 @@
-import Front from "./home";
-import Header from "./components/header";
-import Projects from "./projects";
-import About from "./about";
-import ContactForm from "./contact";
+import {Front, Projects, About, Contact, } from "@/components";
+
+//import Try from "./try";
+
+
 export default function Home() {
 
   return (
     <div>
       <main >
-        <Header />
         <Front />
         <Projects />
         <About />
-        <ContactForm />
-      </main>
-    </div>
-  );
+        <Contact />  
+        </main>
+    </div>  
+);
 }

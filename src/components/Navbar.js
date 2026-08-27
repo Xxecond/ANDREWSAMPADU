@@ -1,7 +1,9 @@
 "use client";
+
 import {HomeIcon, FolderIcon, InformationCircleIcon, PhoneIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-scroll";
 import { useState } from "react";
+import {Bars3Icon, XMarkIcon} from "@heroicons/react/24/outline"
 
 function Spin({ open, setOpen, className }) {
   return (
@@ -10,23 +12,10 @@ function Spin({ open, setOpen, className }) {
       className={`md:hidden w-8.5 h-8 flex flex-col justify-center items-center gap-1.5 
         bg-blue-900 rounded-full mr-3 transform transition-transform duration-900 
         ${open ? "rotate-360" : ""} ${className}`}
-    >
-      <span
-        className={`block w-5 h-0.5 bg-white transition-transform duration-300 ${
-          open ? "rotate-45 translate-y-2" : ""
-        }`}
-      />
-      <span
-        className={`block w-5 h-0.5 bg-white transition-opacity duration-300 ${
-          open ? "opacity-0" : ""
-        }`}
-      />
-      <span
-        className={`block w-5 h-0.5 bg-white transition-transform duration-300 ${
-          open ? "-rotate-45 -translate-y-2" : ""
-        }`}
-      />
-    </button>
+    > 
+    {!open? 
+    <Bars3Icon className="text-white"/>:<XMarkIcon className="text-white" />} 
+     </button>
   );
 }
 
@@ -46,21 +35,21 @@ export default function Navbar() {
       <Spin open={open} setOpen={setOpen} 
        className={`z-50 relative transition-all duration-1000`} />
       <div
-        className={`fixed inset-0 bg-gradient-to-b from-black/70 to-black/70 
-          z-40 transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 bg-black/70  md:hidden  ${
             open ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         onClick={() => setOpen(false)}
       >
+      </div>
         <div
           className={`fixed right-0 top-0 h-full w-64 bg-white shadow-xl transform 
-            transition-transform duration-300 ${
+            transition-transform duration-600 z-10 ${
               open ? "translate-x-0" : "translate-x-full"
             }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="p-6 mt-15 ">
-            <nav className="space-y-5">
+             <nav className="space-y-5">
               {navBar.map((item) => {
                 const Icon = item.icon;
                 return(
@@ -71,7 +60,7 @@ export default function Navbar() {
                   duration={600} 
                   onClick={()=> setOpen((false))}
                  className="relative block text-lg font-semibold p-2 rounded-lg overflow-hidden
-             border border-blue-900 text-black
+             border border-blue-900 text-black cursor-pointer
              before:absolute before:left-0 before:top-0 before:h-full before:w-0
              before:bg-blue-900 before:z-[-1] before:transition-all before:duration-500
              hover:before:w-full hover:text-white"
@@ -82,7 +71,6 @@ export default function Navbar() {
               );})}
             </nav>
           </div>
-        </div>
       </div>
     </nav>
   );

@@ -5,11 +5,11 @@ import Image from "next/image";
 const projects = [
   {
     id: 1,
-    name: "BLOGGER APPLICATION",
-    image1: "/assets/blo.webp",
-    image2: "/assets/blo2.webp",
-    desc: "A highly intuitive, user-friendly platform that allows you to effortlessly create, read, update, and delete blog posts efficiently. Built with React and Vite, with a clean and responsive UI.",
-    liveLink: "https://blogger-red.vercel.app/",
+    name: "JOT APPLICATION",
+    image1: "/assets/jot-1.PNG",
+    image2: "/assets/jot-2.PNG",
+    desc: "A highly intuitive, user-friendly platform that allows you to effortlessly create, read, update, and delete jot posts with ease and clarity. Built with Next.js, with a clean and responsive UI.",
+    liveLink: "https://jot-9.vercel.app/",
   },
   {
     id: 2,
@@ -29,24 +29,31 @@ const projects = [
   },
   {
     id: 4,
-    name: "E-COMMERCE STORE",
-    image1: "/assets/comin.webp",
+    name: "SHOPLY WEBSITE",
+    image1: "/assets/shoply.jpg",
     image2: "/assets/comin2.webp",
-    desc: "An application interface powered by React + Vite framework that highlights a simple, modern layout with search, product grid, and category navigation. Currently under active development.",
+    desc: "A modern e-commerce platform built with Next.js, Express, Prisma, and PostgreSQL, focused on buying and selling clothing and fashion products, with dedicated experiences for buyers, sellers, and admins. Currently under active development.",
     liveLink: "https://your-ecommerce-link.com",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-16 bg-blue-100 text-black text-center">
-      <h1 className="text-xl md:text-2xl font-bold mb-12 tracking-wide">
-        My Projects
+    <section id="projects" className="py-9 px-4 bg-blue-100 text-white text-center">
+      <div className="flex flex-col pb-20 bg-blue-900 rounded-xl relative"> 
+      <header className="block mx-auto py-5  ">
+      <h1 className="text-xl
+       md:text-2xl font-black leading-loose">
+        Latest Projects
       </h1>
-      <div className="px-10 gap-10 grid px-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      </header>
+      <main className="flex w-full space-x-4 px-4 "> 
+  <div className="gap-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
+      </div>
+      </main>
       </div>
     </section>
   );
@@ -54,20 +61,37 @@ export default function Projects() {
 
 function ProjectCard({ project }) {
   const [current, setCurrent] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const cardRef = useRef(null);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    if (window.innerWidth < 768) {
+      setIsVisible(false);
+    }
+  }, []);
 
   useEffect(() => {
     const card = cardRef.current;
     if (!card) return;
 
+    let autoSlideTimer;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-            // when half visible → show second image
-            setCurrent(1);
+            autoSlideTimer = setTimeout(() => {
+              setCurrent(1);
+            }, 3000);
+            if (!hasAnimated && isMobile) {
+              setIsVisible(true);
+              setHasAnimated(true);
+            }
           } else {
-            // less than half visible → reset to first image
+            clearTimeout(autoSlideTimer);
             setCurrent(0);
           }
         });
@@ -76,13 +100,18 @@ function ProjectCard({ project }) {
     );
 
     observer.observe(card);
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      observer.disconnect();
+      clearTimeout(autoSlideTimer);
+    };
+  }, [hasAnimated, isMobile]);
 
   return (
     <section
       ref={cardRef}
-      className="flex flex-col items-center justify-center relative h-screen"
+      className={`flex flex-col items-center justify-center relative h-screen transition-opacity duration-1000 ${
+        isMobile ? (isVisible ? 'opacity-100' : 'opacity-0') : 'opacity-100'
+      }`}
     >
       <div
         onClick={() => setCurrent((prev) => (prev === 0 ? 1 : 0))}
@@ -106,13 +135,15 @@ function ProjectCard({ project }) {
         />
       </div>
 
-      <div className="w-full border-0 border-bg-blue-500 shadow-2xl mt-4 p-4 rounded-lg text-left">
+      <div className="w-full border-0 bg-blue-100 shadow-2xl 
+      mt-4
+       p-4 rounded-lg text-left text-black">
         <h2 className="md:text-lg font-semibold mb-2 flex items-center">
           {project.name}
           <a
             href={project.liveLink}
             target="_blank"
-            className="ml-3 px-3 py-1 border hover:border-0 rounded-lg text-sm md:text-base text-blue-900 hover:bg-blue-900 hover:text-white"
+            className="ring-1 ring-blue-900 ml-3 px-3 py-1 border hover:border-0 rounded-lg text-sm md:text-base text-blue-900 hover:bg-blue-900 hover:text-white"
           >
             Live
           </a>

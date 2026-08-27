@@ -1,12 +1,13 @@
 "use client";
+
 import { Link } from "react-scroll";
 import { useState, useEffect } from "react";
 import Image from "next/image";
- import Navbar from "../components/navbar";
+ import Navbar from "./Navbar";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [textVisible, setTextVisible] = useState(true);
+  const [visible, setVisible] = useState(true);
 
   const headNav = [
     {id:1, link:"home", text:"Home"},
@@ -17,16 +18,16 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50 && !scrolled) {
-        setTextVisible(false);
+        setVisible(false);
         setTimeout(() => {
           setScrolled(true);
-          setTextVisible(true);
+          setVisible(true);
         }, 600);
       } else if (window.scrollY <= 50 && scrolled) {
-        setTextVisible(false);
+        setVisible(false);
         setTimeout(() => {
           setScrolled(false);
-          setTextVisible(true);
+          setVisible(true);
         }, 600);
       }
     };
@@ -36,20 +37,20 @@ export default function Header() {
   }, [scrolled]);
 
   return (
-    <header className={`sticky flex justify-between top-0 z-50 transition-all duration-1000 ${
-        scrolled ? "py-2 shadow-lg bg-gray-100" : "py-4 bg-white"
+    <header className={`sticky flex justify-between shadow-xl
+       top-0 z-50 transition-all duration-600 ${
+        scrolled ? "py-3 bg-white" : "py-4 bg-blue-100"
       }`}
     >
 <Image src="/assets/initials.webp" alt="initials"
 width={92}
 height={92} 
 className={ `ml-3 h-8 w-8 ${
-
-textVisible?
+visible?  
 "":"opacity-0 "}`} />      
       <h1
   className={`md:text-lg lg:text-2xl hidden md:block font-bold text-black transition-all  duration-1000 transform
-    ${textVisible
+    ${visible
       ? scrolled
         ? " opacity-100 scale-100 translate-x-0"   // small, left
         : " opacity-100 scale-100 translate-x-1/2" // big, center
@@ -59,7 +60,7 @@ textVisible?
   PORTFOLIO
 </h1>
       <nav>
-        <ul className={`flex space-x-4 justify-end lg:text-xl px-5  ${textVisible?
+        <ul className={`flex space-x-4 justify-end lg:text-xl px-5  ${visible?
         "":"opacity-0"
 
         }`}>
@@ -73,10 +74,11 @@ textVisible?
       </nav>
       <div className={`md:hidden mr-3 h-8 w-8 ${
 
-textVisible?
+visible?
 "":"opacity-0 "}`}>
       <Navbar  />
     </div>
     </header>
   );
 }
+
