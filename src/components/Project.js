@@ -19,21 +19,14 @@ const projects = [
     desc: "A user-friendly interface that allows customers to easily browse a menu, view detailed food items, and place orders online. Built with React and Vite, ideal for showcasing restaurant dishes online.",
     liveLink: "https://restaurant-zeta-khaki.vercel.app/",
   },
+  ,
   {
     id: 3,
-    name: "PORTFOLIO WEBSITE",
-    image1: "/assets/port.webp",
-    image2: "/assets/port2.webp",
-    desc: "A showcase of my personal development project, skills, and contact info. Users can view projects and explore my tech stack. Built with React and Vite, responsive and easy to navigate.",
-    liveLink: "https://portfolioo-wx2k.vercel.app/",
-  },
-  {
-    id: 4,
     name: "SHOPLY WEBSITE",
     image1: "/assets/shoply.jpg",
     image2: "/assets/comin2.webp",
-    desc: "A modern e-commerce platform built with Next.js, Express, Prisma, and PostgreSQL, focused on buying and selling clothing and fashion products, with dedicated experiences for buyers, sellers, and admins. Currently under active development.",
-    liveLink: "https://your-ecommerce-link.com",
+    desc: "A modern e-commerce platform built with Next.js, Express, PostgreSQL, allowing buying and selling clothing products, with smooth experiences for buyers, sellers, and admins. Under active development.",
+    liveLink: "######",
   },
 ];
 
