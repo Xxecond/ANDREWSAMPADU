@@ -123,7 +123,7 @@ export default function Contact() {
               <div key={item.id} className="relative w-full">
                 <Icon
                   className={`absolute left-3 text-gray-600 h-5 w-5 
-                  ${item.id === 3 ? "top-4" : "top-1/3 -translate-y-1/2"}`}
+                  ${item.id === 3 ? "top-3.5" : "top-1/2 -translate-y-1/2"}`}
                 />
                 {item.id === 3 ? (
                   <textarea
