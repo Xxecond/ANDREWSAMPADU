@@ -1,10 +1,11 @@
+"use client"
 import {Front } from "@/components";
 import Sections from "./sections/page";
 
 export default function Home() {
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <main >
         <Front />
         <Sections />  

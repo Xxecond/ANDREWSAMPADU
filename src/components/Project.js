@@ -32,7 +32,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="w-full" >
+    <section className="w-full">
       <div className="gap-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
@@ -79,7 +79,7 @@ function ProjectCard({ project }) {
           }
         });
       },
-      { threshold: [0, 0.5, 1] }
+      { threshold: [0, 0.5, 1] },
     );
 
     observer.observe(card);
@@ -93,7 +93,7 @@ function ProjectCard({ project }) {
     <section
       ref={cardRef}
       className={`flex flex-col items-center justify-center relative h-screen transition-opacity duration-1000 ${
-        isMobile ? (isVisible ? 'opacity-100' : 'opacity-0') : 'opacity-100'
+        isMobile ? (isVisible ? "opacity-100" : "opacity-0") : "opacity-100"
       }`}
     >
       <div
@@ -118,9 +118,11 @@ function ProjectCard({ project }) {
         />
       </div>
 
-      <div className="w-full border-0 bg-blue-100 shadow-2xl 
+      <div
+        className="w-full border-0 bg-blue-100 shadow-2xl 
       mt-4
-       p-4 rounded-lg text-left text-black">
+       p-4 rounded-lg text-left text-black"
+      >
         <h2 className="md:text-lg font-semibold mb-2 flex items-center">
           {project.name}
           <a

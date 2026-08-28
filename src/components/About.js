@@ -7,7 +7,7 @@ import {
   SiTypescript,
   SiNodedotjs,
   SiExpress,
-  SiTailwindcss
+  SiTailwindcss,
 } from "react-icons/si";
 
 const aboutText = `Hi, i'm Andrews Ampadu, an I.T graduate
@@ -20,8 +20,7 @@ const aboutText = `Hi, i'm Andrews Ampadu, an I.T graduate
      to modern frameworks and backend technologies.
     `;
 
-
-const AboutYouText = `Hi, i'm Andrews Takyi is in Accra. And you`
+const AboutYouText = `Hi, i'm Andrews Takyi is in Accra. And you`;
 
 function Typewriter({ fullText }) {
   const ref = useRef(null);
@@ -61,15 +60,14 @@ export default function About() {
   const [hasAnimated, setHasAnimated] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-
-    useEffect(() => {
+  useEffect(() => {
     if (!leftBox.current || !rightBox.current) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const el = entry.target.classList;
-          
+
           if (entry.isIntersecting) {
             // Element is in view: settle at 0px translation and full opacity
             el.remove("opacity-0", "-translate-x-32", "translate-x-32");
@@ -78,7 +76,7 @@ export default function About() {
             // Element is out of view: fade out and push outwards
             el.remove("opacity-100", "translate-x-0");
             el.add("opacity-0");
-            
+
             if (entry.target === leftBox.current) {
               el.add("-translate-x-32"); // Push left box to the left
             } else {
@@ -87,7 +85,7 @@ export default function About() {
           }
         });
       },
-      { threshold: 0.2 } // Triggers when 20% of the box is visible
+      { threshold: 0.2 }, // Triggers when 20% of the box is visible
     );
 
     observer.observe(leftBox.current);
@@ -95,7 +93,6 @@ export default function About() {
 
     return () => observer.disconnect();
   }, []);
- 
 
   const Stacks = [
     { id: 1, icon: SiNextdotjs, color: "text-black" },
@@ -108,48 +105,47 @@ export default function About() {
 
   return (
     <section className=" w-full flex gap-4  ">
-    <div
-          ref={leftBox}
-            className="relative hidden md:block w-1/2 minh-h-[75dvh] rounded-xl transition-all duration-1000 ease-out opacity-0 -translate-x-32"
-        >
-           <Image
-            src="/assets/him-2.JPG"
-            alt="aboutMePic"
-            fill
-            className="rounded-xl"
-          />
-       </div>
-        <div
-          ref={rightBox}
-          className="flex flex-col justify-center p-4 min-h-[75dvh] items-evenly w-full md:w-1/2 bg-white rounded-xl transition-all duration-1000 ease-out opacity-0 translate-x-32"
-
-        >
-          <p
-            className="text-black flex-10 flex items-center  text-left md:text-xl lg:text-2xl 
+      <div
+        ref={leftBox}
+        className="relative hidden md:block w-1/2 minh-h-[75dvh] rounded-xl transition-all duration-1000 ease-out opacity-0 -translate-x-32"
+      >
+        <Image
+          src="/assets/him-2.JPG"
+          alt="aboutMePic"
+          fill
+          className="rounded-xl"
+        />
+      </div>
+      <div
+        ref={rightBox}
+        className="flex flex-col justify-center p-4 min-h-[75dvh] items-evenly w-full md:w-1/2 bg-white rounded-xl transition-all duration-1000 ease-out opacity-0 translate-x-32"
+      >
+        <p
+          className="text-black flex-10 flex items-center  text-left md:text-xl lg:text-2xl 
   leading-tight tracking-tight
   lg:leading-relaxed lg:tracking-tight
    xl:leading-loose xl:tracking-wide"
-          >
-            {" "}
-            <Typewriter fullText={aboutText} />{" "}
-          </p>
-          <ul
-            className="flex-1 flex justify-end items-center w-full 
+        >
+          {" "}
+          <Typewriter fullText={aboutText} />{" "}
+        </p>
+        <ul
+          className="flex-1 flex justify-end items-center w-full 
         space-x-5"
-          >
-            {Stacks.map((item) => {
-              const Icon = item.icon;
-              return (
-                <li key={item.id}>
-                  <Icon
-                    className={`text-2xl md:text-xl lg:text-3xl 
+        >
+          {Stacks.map((item) => {
+            const Icon = item.icon;
+            return (
+              <li key={item.id}>
+                <Icon
+                  className={`text-2xl md:text-xl lg:text-3xl 
             ${item.color}`}
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-       </section>
+                />
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
   );
 }
