@@ -107,20 +107,10 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="px-4 py-9 w-full bg-blue-100 justify-center">
-      <div  className="flex flex-col items-center pb-20 bg-blue-900 rounded-xl relative">
-         <header className="block mx-auto py-5  ">
-          <h1
-          className="text-white text-xl
-       md:text-2xl font-black leading-loose"
-        >
-          About Me
-        </h1>
-        </header>
-       <main className="flex flex-10 w-full gap-4 px-4">
-        <div
+    <section className=" w-full flex gap-4  ">
+    <div
           ref={leftBox}
-            className="hidden md:block w-1/2 h-130 rounded-xl transition-all duration-1000 ease-out opacity-0 -translate-x-32"
+            className="relative hidden md:block w-1/2 minh-h-[75dvh] rounded-xl transition-all duration-1000 ease-out opacity-0 -translate-x-32"
         >
            <Image
             src="/assets/him-2.JPG"
@@ -131,11 +121,11 @@ export default function About() {
        </div>
         <div
           ref={rightBox}
-          className="flex flex-col justify-center px-4 h-130 items-evenly w-full md:w-1/2 bg-white rounded-xl transition-all duration-1000 ease-out opacity-0 translate-x-32"
+          className="flex flex-col justify-center p-4 min-h-[75dvh] items-evenly w-full md:w-1/2 bg-white rounded-xl transition-all duration-1000 ease-out opacity-0 translate-x-32"
 
         >
           <p
-            className="flex-10 flex items-center  text-left md:text-xl lg:text-2xl 
+            className="text-black flex-10 flex items-center  text-left md:text-xl lg:text-2xl 
   leading-tight tracking-tight
   lg:leading-relaxed lg:tracking-tight
    xl:leading-loose xl:tracking-wide"
@@ -160,8 +150,6 @@ export default function About() {
             })}
           </ul>
         </div>
-      </main>
-      </div>
-    </section>
+       </section>
   );
 }

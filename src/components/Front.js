@@ -7,8 +7,8 @@ export default function Front() {
       className=" text-center min-h-screen bg-blue-100 flex flex-col overflow-hidden"
     >
       <main className="pt-20 px-5  md:px-15 xl:px-20">
-        <section className="mx-auto flex gap-4 h-60 md:h-80 max-h-1/2 items-center w-[95%] lg:max-w-5/6 justify-between">
-  <div className=" w-[60%] relative items-center h-full ">
+        <section className=" mx-auto flex gap-4 h-60 md:h-80 max-h-1/2 items-center w-[95%] lg:max-w-5/6 justify-between">
+  <div className=" w-[60%]  relative items-center h-full ">
     <Image
       src="/assets/him-2.JPG"
       alt="Andy-profile-pic"
@@ -24,8 +24,8 @@ export default function Front() {
     </h1>
   </div>
 </section>
-        <section className="mx-auto flex gap-4 items-center  w-[95%] lg:max-w-5/6 justify-between">
-          <dl className="flex flex-col justify-center w-1/2">
+        <section className=" mx-auto flex gap-4 items-center  w-[95%] lg:max-w-5/6 justify-between">
+          <dl className="flex flex-col justify-center w-[60%]">
             <dt className="font-light md:text-lg ">i'm Andrews</dt>
             <dd className="text-blue-800 font-bold md:text-lg ">
               a web developer.
@@ -33,7 +33,7 @@ export default function Front() {
           </dl>
           <div
             className="flex items-center justify-end 
-           w-1/2 h-full "
+           w-[40%] h-full "
           >
             <a
               href="/Resume.pdf"

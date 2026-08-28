@@ -71,18 +71,8 @@ export default function Contact() {
   };
 
   return (
-    <div id="contact" className="px-4 py-9 w-full bg-blue-100 justify-center">
-      <div className="flex flex-col items-center pb-20 bg-blue-900 rounded-xl relative">
-        <header className="block mx-auto py-5  ">
-          <h1
-          className="text-white text-xl
-       md:text-2xl font-black leading-loose"
-        >
-          Contact Me
-        </h1>
-        </header>
-        <main className="flex w-full gap-4 px-4">
-        <article className="space-y-9 text-white flex flex-col hidden md:block w-1/2 ">
+    <div  className=" flex flex-col md:flex-row w-full">
+        <article className="space-y-9 text-white flex flex-col hidden md:flex w-1/2 ">
         <h1 className=" leading-tight text-3xl font-semibold pb-3">
             Questions? ideas? or just a hello?
             <br /> feel free to ask.
@@ -188,8 +178,6 @@ export default function Contact() {
             </button>
           </section>
         </form>
-      </main>
       </div>
-    </div>
   );
 }

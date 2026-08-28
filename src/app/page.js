@@ -1,7 +1,5 @@
-import {Front, Projects, About, Contact, } from "@/components";
-
-//import Try from "./try";
-
+import {Front } from "@/components";
+import Sections from "./sections/page";
 
 export default function Home() {
 
@@ -9,9 +7,7 @@ export default function Home() {
     <div>
       <main >
         <Front />
-        <Projects />
-        <About />
-        <Contact />  
+        <Sections />  
         </main>
     </div>  
 );

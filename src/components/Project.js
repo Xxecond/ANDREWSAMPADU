@@ -25,28 +25,18 @@ const projects = [
     name: "SHOPLY WEBSITE",
     image1: "/assets/shoply.jpg",
     image2: "/assets/comin2.webp",
-    desc: "A modern e-commerce platform built with Next.js, Express, PostgreSQL, allowing buying and selling clothing products, with smooth experiences for buyers, sellers, and admins. Under active development.",
+    desc: "A modern e-commerce platform using Next.js, Express, PostgreSQL, for buying and selling fashion, offering dedicated experiences for buyers, sellers, and admins. Currently under development.",
     liveLink: "######",
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-9 px-4 bg-blue-100 text-white text-center">
-      <div className="flex flex-col pb-20 bg-blue-900 rounded-xl relative"> 
-      <header className="block mx-auto py-5  ">
-      <h1 className="text-xl
-       md:text-2xl font-black leading-loose">
-        Latest Projects
-      </h1>
-      </header>
-      <main className="flex w-full space-x-4 px-4 "> 
-  <div className="gap-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <section className="w-full" >
+      <div className="gap-10 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
-      </div>
-      </main>
       </div>
     </section>
   );
