@@ -13,6 +13,7 @@ export default function Front() {
       src="/assets/him-2.JPG"
       alt="Andy-profile-pic"
       fill
+      sizes="40vw"
       className="absolute border-2 border-black shadow-2xl rounded-4xl"
     />
   </div>

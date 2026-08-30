@@ -113,6 +113,7 @@ export default function About() {
           src="/assets/him-2.JPG"
           alt="aboutMePic"
           fill
+          sizes="45vw"
           className="rounded-xl"
         />
       </div>

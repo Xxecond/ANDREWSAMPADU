@@ -104,6 +104,7 @@ function ProjectCard({ project }) {
           src={project.image1}
           alt={`${project.name} preview 1`}
           fill
+          sizes="20vw"
           className={`absolute top-0 left-0 w-full h-full object-fill transition-opacity duration-700 ${
             current === 0 ? "opacity-100" : "opacity-0"
           }`}
@@ -112,6 +113,7 @@ function ProjectCard({ project }) {
           src={project.image2}
           alt={`${project.name} preview 2`}
           fill
+          sizes="20vw"
           className={`absolute top-0 left-0 w-full h-full object-fill transition-opacity duration-700 ${
             current === 1 ? "opacity-100" : "opacity-0"
           }`}
