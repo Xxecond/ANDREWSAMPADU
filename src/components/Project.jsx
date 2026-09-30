@@ -7,7 +7,7 @@ const projects = [
     id: 1,
     name: "JOT APPLICATION",
     image1: "/assets/jot-1.PNG",
-    image2: "/assets/jot-2.PNG",
+    image2: "/assets/jot-2.jpg",
     desc: "A highly intuitive, user-friendly platform that allows you to effortlessly create, read, update, and delete jot posts with ease and clarity. Built with Next.js, with a clean and responsive UI.",
     liveLink: "https://jot-9.vercel.app/",
   },
