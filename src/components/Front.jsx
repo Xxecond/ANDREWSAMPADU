@@ -6,24 +6,24 @@ export default function Front() {
       id="home"
       className="h-screen overflow-hidden bg-blue-100 text-center flex flex-col"
     >
-      <div className="h-5/6 w-full flex flex-col justify-center">
+      <div className="h-5/6 xl:h-screen w-full flex flex-col justify-center">
         <main className="px-5 md:px-10 lg:px-15 xl:px-20 ">
           <section
             className="
               mx-auto w-[95%] lg:max-w-5/6
               flex items-center justify-between gap-4
               
-              max-[400px]:h-[15rem]
+              max-[500px]:h-[15rem]
               h-[20rem]
               md:h-[25rem]
               lg:h-[30rem]
-              xl:h-[40rem]
+              xl:h-[35rem]
             "
           >
             {/* Image */}
             <div className="relative w-[60%] h-full ">
               <Image
-                src="/assets/him-2.JPG"
+                src="/assets/him.jpg"
                 alt="Andy-profile-pic"
                 fill
                 sizes="(max-width: 768px) 60vw, 40vw"
@@ -32,11 +32,13 @@ export default function Front() {
             </div>
 
             {/* Welcome text */}
-            <div className="w-[40%] flex justify-end">
+            <div className="  w-[40%] h-[5rem] text-center flex items-center flex justify-end">
               <h1
                 className="
-                  font-bold
+                  font-bold 
                   text-xl
+                  scale-y-170
+                  md: scale-y-200
                   sm:text-2xl
                   md:text-4xl
                   lg:text-5xl
