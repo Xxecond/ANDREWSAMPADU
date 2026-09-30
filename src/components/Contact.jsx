@@ -72,7 +72,7 @@ export default function Contact() {
 
   return (
     <div className=" flex flex-col md:flex-row w-full">
-      <article className="space-y-9 text-white flex flex-col justify-center hidden md:flex w-1/2 ">
+      <article className="space-y-9 max-[900px]:pr-9 text-white flex flex-col justify-center hidden md:flex w-1/2 ">
         <h1 className=" leading-tight text-3xl font-semibold pb-3">
           Questions? ideas? or just a hello?
           <br /> feel free to ask.
@@ -93,7 +93,7 @@ export default function Contact() {
         </div>
         <div className="flex bg-white/10 w-[70%] items-center p-4 rounded-lg justify-between relative">
           <Image
-            src="/assets/him-2.JPG"
+            src="/assets/him.jpg"
             alt="Andrews profile pic"
             width={70}
             height={70}

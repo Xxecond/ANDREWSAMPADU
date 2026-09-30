@@ -110,7 +110,7 @@ export default function About() {
         className="relative hidden md:block w-1/2 minh-h-[75dvh] rounded-xl transition-all duration-1000 ease-out opacity-0 -translate-x-32"
       >
         <Image
-          src="/assets/him-2.JPG"
+          src="/assets/him.jpg"
           alt="aboutMePic"
           fill
           sizes="45vw"
