@@ -23,9 +23,9 @@ const projects = [
   {
     id: 3,
     name: "SHOPLY WEBSITE",
-    image1: "/assets/shoply.jpg",
-    image2: "/assets/comin2.webp",
-    desc: "A modern e-commerce platform using Next.js, Express, PostgreSQL, for buying and selling fashion, offering dedicated experiences for buyers, sellers, and admins. Currently under development.",
+    image1: "/assets/shoply-1.JPG",
+    image2: "/assets/shoply-2.JPG",
+    desc: "A modern buy-and-sell e-commerce platform that enables users to browse products, discover categories, and buy or sell items through a seamless, user-friendly shopping experience. Currently under development.",
     liveLink: "######",
   },
 ];
