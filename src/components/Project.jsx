@@ -5,6 +5,14 @@ import Image from "next/image";
 const projects = [
   {
     id: 1,
+    name: "SHOPLY WEBSITE",
+    image1: "/assets/shoply.JPG",
+    image2: "/assets/shoply-2.JPG",
+    desc: "A modern e-commerce platform that allows users to explore different product categories, discover items, and easily buy or sell products through a smooth and convenient shopping experience.",
+    liveLink: "https://shoply-9.vercel.app/",
+  },
+  {
+    id: 2,
     name: "JOT APPLICATION",
     image1: "/assets/jot-1.PNG",
     image2: "/assets/jot-2.jpg",
@@ -12,21 +20,12 @@ const projects = [
     liveLink: "https://jot-9.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     name: "RESTAURANT WEBSITE",
     image1: "/assets/rest.webp",
     image2: "/assets/rest2.webp",
     desc: "A user-friendly interface that allows customers to easily browse a menu, view detailed food items, and place orders online. Built with React and Vite, ideal for showcasing restaurant dishes online.",
     liveLink: "https://restaurant-zeta-khaki.vercel.app/",
-  },
-  ,
-  {
-    id: 3,
-    name: "SHOPLY WEBSITE",
-    image1: "/assets/shoply-1.JPG",
-    image2: "/assets/shoply-2.JPG",
-    desc: "A modern buy-and-sell e-commerce platform that enables users to browse products, discover categories, and buy or sell items through a seamless, user-friendly shopping experience. Currently under development.",
-    liveLink: "######",
   },
 ];
 
