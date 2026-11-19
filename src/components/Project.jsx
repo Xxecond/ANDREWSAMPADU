@@ -6,8 +6,8 @@ const projects = [
   {
     id: 1,
     name: "SHOPLY WEBSITE",
-    image1: "/assets/shoply.JPG",
-    image2: "/assets/shoply-2.JPG",
+    image1: "/assets/shoply.png",
+    image2: "/assets/shoply-2.png",
     desc: "A modern e-commerce platform that allows users to explore different product categories, discover items, and easily buy or sell products through a smooth and convenient shopping experience.",
     liveLink: "https://shoply-9.vercel.app/",
   },

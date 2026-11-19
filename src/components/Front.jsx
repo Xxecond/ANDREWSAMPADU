@@ -64,7 +64,7 @@ export default function Front() {
               </dt>
 
               <dd className="font-bold text-blue-800 text-sm sm:text-base md:text-lg">
-                a web developer.
+                a Full-Stack Developer.
               </dd>
             </dl>
 
