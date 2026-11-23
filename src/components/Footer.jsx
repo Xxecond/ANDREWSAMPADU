@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
           <p className="pt-5 font-light leading-relaxed">
             {" "}
-            Full Stack Developer specializing in modern web technologies,
+            Full-Stack Developer specializing in modern web technologies,
             intuitive UI/UX, and building scalable, high-performance digital
             experiences with clean code & creative flow.
           </p>
