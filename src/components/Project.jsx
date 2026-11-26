@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { Radio } from "lucide-react";
+import { HiSignal } from "react-icons/hi2";
 import Image from "next/image";
 
 const projects = [
@@ -129,12 +131,20 @@ function ProjectCard({ project }) {
           <a
             href={project.liveLink}
             target="_blank"
-            className="ring-1 ring-blue-900 ml-3 px-3 py-1 border hover:border-0 rounded-lg text-sm md:text-base text-blue-900 hover:bg-blue-900 hover:text-white"
+            className=" flex items-center ring-1 ring-blue-900 ml-3 px-2  py-1 border hover:border-0 rounded-lg text-sm md:text-base text-blue-900 hover:bg-blue-900 hover:text-white"
           >
-            Live
+            <div className="inline-flex items-center gap-2">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+              </span>
+              <span className="text-sm font-medium text-neutral-800">Live</span>
+            </div>
           </a>
         </h2>
-        <p className="text-sm md:text-base leading-relaxed">{project.desc}</p>
+        <a href={project.liveLink} target="_blank">
+          <p className="text-sm md:text-base leading-relaxed">{project.desc}</p>
+        </a>
       </div>
     </section>
   );
